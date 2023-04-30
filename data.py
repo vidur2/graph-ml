@@ -238,6 +238,8 @@ def encode_adj_flexible(adj):
     :param adj: adj matrix
     :return:
     '''
+
+
     # pick up lower tri
     adj = np.tril(adj, k=-1)
     n = adj.shape[0]

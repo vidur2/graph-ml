@@ -7,7 +7,7 @@ graphPossibilities = [f"P{10 * num}" for num in range(1, maxGraphs + 1)]
 def generate_graps(amount: int):
     graphs = []
     for graph in range(amount):
-        graphLen = rand.randint(0, len(graphPossibilities)//10)
+        graphLen = rand.randint(3, 11)
         graph = []
         for _ in range(graphLen):
             node = graphPossibilities[rand.randint(0, len(graphPossibilities) - 1)]
@@ -28,7 +28,7 @@ def writeToCsv(path, graphs):
 
 
 def test():
-    graphs = generate_graps(10)
+    graphs = generate_graps(5)
     writeToCsv("./dataset/graphs.csv", graphs)
 
 

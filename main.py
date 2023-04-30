@@ -119,21 +119,21 @@ if __name__ == '__main__':
     if 'GraphRNN_VAE_conditional' in args.note:
         rnn = GRU_plain(input_size=args.max_prev_node, embedding_size=args.embedding_size_rnn,
                         hidden_size=args.hidden_size_rnn, num_layers=args.num_layers, has_input=True,
-                        has_output=False).cuda()
-        output = MLP_VAE_conditional_plain(h_size=args.hidden_size_rnn, embedding_size=args.embedding_size_output, y_size=args.max_prev_node).cuda()
+                        has_output=False)
+        output = MLP_VAE_conditional_plain(h_size=args.hidden_size_rnn, embedding_size=args.embedding_size_output, y_size=args.max_prev_node)
     elif 'GraphRNN_MLP' in args.note:
         rnn = GRU_plain(input_size=args.max_prev_node, embedding_size=args.embedding_size_rnn,
                         hidden_size=args.hidden_size_rnn, num_layers=args.num_layers, has_input=True,
-                        has_output=False).cuda()
-        output = MLP_plain(h_size=args.hidden_size_rnn, embedding_size=args.embedding_size_output, y_size=args.max_prev_node).cuda()
+                        has_output=False)
+        output = MLP_plain(h_size=args.hidden_size_rnn, embedding_size=args.embedding_size_output, y_size=args.max_prev_node)
     elif 'GraphRNN_RNN' in args.note:
         print(dataset.max_prev_node)
         rnn = GRU_plain(input_size=dataset.max_prev_node, embedding_size=args.embedding_size_rnn,
                         hidden_size=args.hidden_size_rnn, num_layers=args.num_layers, has_input=True,
-                        has_output=True, output_size=args.hidden_size_rnn_output).cuda()
+                        has_output=True, output_size=args.hidden_size_rnn_output)
         output = GRU_plain(input_size=1, embedding_size=args.embedding_size_rnn_output,
                            hidden_size=args.hidden_size_rnn_output, num_layers=args.num_layers, has_input=True,
-                           has_output=True, output_size=1).cuda()
+                           has_output=True, output_size=1)
 
     ### start training
     train(args, dataset_loader, rnn, output)

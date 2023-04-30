@@ -9,7 +9,7 @@ class GraphParser():
     def parseGraphs(self):
         with open(self.path) as f:
             for line in f.readlines():
-                g = nx.Graph()
+                g = nx.DiGraph()
                 split = line.split(",")
                 for i in range(len(split) - 1):
                     g.add_edge(split[i], split[i + 1])
