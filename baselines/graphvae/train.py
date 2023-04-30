@@ -44,8 +44,8 @@ def train(args, dataloader, model):
             features = data['features'].float()
             adj_input = data['adj'].float()
 
-            features = Variable(features).cuda()
-            adj_input = Variable(adj_input).cuda()
+            features = Variable(features)
+            adj_input = Variable(adj_input)
             
             loss = model(features, adj_input)
             print('Epoch: ', epoch, ', Iter: ', batch_idx, ', Loss: ', loss)
@@ -124,7 +124,7 @@ def main():
             dataset, 
             batch_size=prog_args.batch_size, 
             num_workers=prog_args.num_workers)
-    model = build_model(prog_args, max_num_nodes).cuda()
+    model = build_model(prog_args, max_num_nodes)
     train(prog_args, dataset_loader, model)
 
 

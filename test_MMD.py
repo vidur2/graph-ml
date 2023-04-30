@@ -24,8 +24,8 @@ def compute_mmd(x,y):
 
 
 # start = time.time()
-# x = torch.randn(4000,1).cuda()
-# y = torch.randn(4000,1).cuda()
+# x = torch.randn(4000,1)
+# y = torch.randn(4000,1)
 # print(compute_mmd(x,y))
 # end = time.time()
 # print('GPU time:', end-start)

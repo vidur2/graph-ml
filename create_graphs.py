@@ -1,5 +1,6 @@
 import networkx as nx
 import numpy as np
+from parser import GraphParser
 
 from utils import *
 from data import *
@@ -149,6 +150,10 @@ def create(args):
         shuffle(graphs)
         graphs = graphs[0:200]
         args.max_prev_node = 15
+    elif args.graph_type == "custom":
+        parser = GraphParser("./dataset/graphs.csv")
+        parser.parseGraphs()
+        graphs = parser.graphs
 
     return graphs
 

@@ -399,7 +399,7 @@ def draw_graph_list(G_list, row, col, fname = 'figures/test', layout='spring', i
 # directly get graph statistics from adj, obsoleted
 def decode_graph(adj, prefix):
     adj = np.asmatrix(adj)
-    G = nx.from_numpy_matrix(adj)
+    G = nx.from_numpy_array(adj)
     # G.remove_nodes_from(nx.isolates(G))
     print('num of nodes: {}'.format(G.number_of_nodes()))
     print('num of edges: {}'.format(G.number_of_edges()))
@@ -430,7 +430,7 @@ def get_graph(adj):
     adj = adj[~np.all(adj == 0, axis=1)]
     adj = adj[:, ~np.all(adj == 0, axis=0)]
     adj = np.asmatrix(adj)
-    G = nx.from_numpy_matrix(adj)
+    G = nx.from_numpy_array(adj)
     return G
 
 # save a list of graphs
